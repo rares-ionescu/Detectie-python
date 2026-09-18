@@ -44,6 +44,8 @@ REPORNIRE_DUPA_ANALIZA = os.environ.get("CONTACT_REPORNIRE", "0").strip().lower(
 
 REPORNIRE_INTARZIERE = float(os.environ.get("CONTACT_REPORNIRE_INTARZIERE", "1.0"))
 
+COD_REPORNIRE = 7
+
 CHROME_VERSIUNE = int(os.environ.get("CHROME_VERSIUNE", "152"))
 
 CHROME_INVIZIBIL = os.environ.get("CHROME_INVIZIBIL", "1").strip().lower() not in ("0", "false", "nu")
@@ -1756,7 +1758,7 @@ def programeaza_repornire(job_id):
         return
 
     log(">>> Rezultatul a fost preluat de Admin - inchid serviciul, fereastra il reporneste.")
-    threading.Timer(REPORNIRE_INTARZIERE, lambda: os._exit(0)).start()
+    threading.Timer(REPORNIRE_INTARZIERE, lambda: os._exit(COD_REPORNIRE)).start()
 
 
 def noteaza(job_id, mesaj, pas=None, progres=None):

@@ -55,6 +55,8 @@ REPORNIRE_DUPA_ANALIZA = os.environ.get("ANALIZA_REPORNIRE", "0").strip().lower(
 
 REPORNIRE_INTARZIERE = float(os.environ.get("ANALIZA_REPORNIRE_INTARZIERE", "1.0"))
 
+COD_REPORNIRE = 7
+
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
@@ -606,7 +608,7 @@ def programeaza_repornire(job_id):
         return
 
     log.info("Rezultatul a fost preluat de Admin - inchid serviciul, fereastra il reporneste.")
-    threading.Timer(REPORNIRE_INTARZIERE, lambda: os._exit(0)).start()
+    threading.Timer(REPORNIRE_INTARZIERE, lambda: os._exit(COD_REPORNIRE)).start()
 
 def noteaza(job_id, mesaj, pas=None, progres=None):
     with LACAT_JOBURI:
