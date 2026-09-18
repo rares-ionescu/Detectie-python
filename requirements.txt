@@ -1,0 +1,20 @@
+# Versiunile cu care ruleaza si e testat pe masina de dezvoltare.
+# Instalare:  pip install -r requirements.txt
+
+# Serviciul de produse si servicii (PASUL-II-filtrare.py)
+flask==3.1.3
+requests==2.34.2
+beautifulsoup4==4.15.0
+ddgs==9.16.0
+
+# Serviciul de date de contact (Detectare_adresa_server_rapida.py)
+selenium==4.49.0
+undetected-chromedriver==3.5.5
+
+# Importul in baza de date (import_produse_servicii.py) si modul de procesare
+# in masa al detectarii de adrese.
+mysql-connector-python==26.7.0
+
+# Doar pe server: serveste aplicatiile Flask in productie, in locul serverului
+# de development. Vezi DEPLOY-aaPanel.md — obligatoriu cu UN SINGUR worker.
+gunicorn==23.0.0 ; sys_platform != "win32"
